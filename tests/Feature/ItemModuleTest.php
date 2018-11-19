@@ -22,16 +22,16 @@ class ItemModuleTest extends TestCase
         //Auth::login($user);
         $user = new User(array('NOMBRE'=>"ALE"));
         $this->be($user);
-        $this->session(['ROL'=>7]);
+        $this->session(['ROL'=>6]);
         $response = $this->get('/item');
         $response->assertStatus(200)
                  ->assertSee('CERRAR SESION')
                  ->assertSee('USUARIO')
                  ->assertSee('REGISTRO')
-                ->assertSee('REGISTRADOS')
-                ->assertSee('ITEM')
-                ->assertSee('MIS ITEMS')
-                ->assertSee('NUEVOS ITEMS');
+                    ->assertSee('REGISTRADOS')
+                    ->assertSee('ITEM')
+                    ->assertSee('MIS ITEMS')
+                    ->assertSee('NUEVOS ITEMS');
 
     }
 }
